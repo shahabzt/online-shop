@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchProduct } from "../store/product.action"
 import { ProductPaint } from './product.paint';
 import { Card, Image, Text, Badge, Button, Group, Grid, Flex,Spoiler } from '@mantine/core';
+import { Loading } from './loader';
+
 
 
 export function ShowProductData() {
@@ -19,14 +21,20 @@ export function ShowProductData() {
             <Grid>
 
 
-            {product.isLoading ? <h1>Is Loading</h1> : product.error ? <h1>{product.error}</h1> :
+            {product.isLoading ? <Loading/> : product.error ? <h1>{product.error}</h1> :
                 product.product.map((product) => {
                     return (
                         // <ProductPaint  image= {product.image} description = {product.description} price = {product.price} title = {product.title} />                            
                         <Grid.Col span={4} key={product.id}>
-
+                                <Flex
+                                 
+                                 justify="center"
+                                 align="center"
+                                 direction="row"
+                                 wrap="wrap"
+                                >
                             <Card withBorder>
-                                <Card.Section style={{ weight: "500px", height: "500px" }}
+                                <Card.Section style={{ weight: "500px", height: "450px" }}
                                 >
                                         <Badge color={product.rating.rate > 3.5 ? "green" : "red"} radius="md" variant="filled" >
                                          {product.rating.rate} / 5
@@ -36,13 +44,15 @@ export function ShowProductData() {
                                         width={200}
                                         height={200}
                                         fit="fill"
-                                        alt="Production" />
+                                        alt="Production"
+                                    
+                                         />
 
 
                                     <Group position="apart" mt="md" mb="xs">
-                                        <Text weight={500} truncate>{product.title}</Text>
 
                                     </Group>
+                                        <Text weight={500} truncate>{product.title}</Text>
                                     <Badge color="pink" variant="light">
                                      price:   $  {product.price}
                                     </Badge>
@@ -55,11 +65,12 @@ export function ShowProductData() {
                                     <Badge variant="gradient" radius="md"  gradient={{ from: 'teal', to: 'blue', deg: 60 }} >
                                          stock: {product.rating.count}
                                     </Badge>
+                                </Card.Section>
                                     <Button variant="light" color="blue" fullWidth mt="md" mb="xs" radius="md">
                                         Add
                                     </Button>
-                                </Card.Section>
                             </Card>
+                            </Flex>
                         </Grid.Col>
                     );
                 })}
