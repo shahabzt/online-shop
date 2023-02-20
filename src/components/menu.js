@@ -1,8 +1,9 @@
-import { Group, Text , Divider} from "@mantine/core"
+import { Group, Text , Divider, Input} from "@mantine/core"
 
 export function MenuBar() {
     return (
-        <Group mb={50} position="center">
+      <>
+      <Group mb={50} position="center">
         <Text>Home</Text>
         <Divider size="lg" orientation="vertical" />
         <Text>Store</Text>
@@ -14,6 +15,8 @@ export function MenuBar() {
         <Text>Guid</Text>
         <Divider size="lg" orientation="vertical" />
         <Text>Question</Text>
+      <Input placeholder="search"/>
       </Group>
+      </>
     )
 }
