@@ -2,8 +2,9 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProduct } from "../store/product.action"
 import { ProductPaint } from './product.paint';
-import { Card, Image, Text, Badge, Button, Group, Grid, Flex, Spoiler, Anchor } from '@mantine/core';
+import { Card, Image, Text, Badge, Button, Group, Grid, Flex, Spoiler, Anchor, Divider } from '@mantine/core';
 import { Loading } from './loader';
+import {  MenuBar } from './menu';
 
 
 
@@ -20,6 +21,7 @@ export function ShowProductData() {
     return (
         <>
             <h1>   ZARA  </h1>
+            <MenuBar/>
             <Grid>
 
 
@@ -78,7 +80,9 @@ export function ShowProductData() {
                             </Grid.Col>
                         );
                     })}
-            </Grid></>
+            </Grid>
+            <Divider my="xs" label="shahab online shop" labelPosition="center" size={10}/>
+            </>
     )
 
 }
