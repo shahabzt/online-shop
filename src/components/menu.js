@@ -1,21 +1,24 @@
 import { Group, Text , Divider, Input} from "@mantine/core"
 
+import {IconSearch , IconHome2 , IconShoppingBag , IconPhoneCalling , IconQuestionCircle , IconQuestionMark
+,IconMail
+} from "@tabler/icons-react"
 export function MenuBar() {
     return (
       <>
       <Group mb={50} position="center">
-        <Text>Home</Text>
+        <Text > {<IconHome2/>} Home</Text>
         <Divider size="lg" orientation="vertical" />
-        <Text>Store</Text>
+        <Text> {<IconShoppingBag/>} Store</Text>
         <Divider size="lg" orientation="vertical" />
-        <Text>About Me</Text>
+        <Text>{<IconMail size={30}/>} Email</Text>
         <Divider size="lg" orientation="vertical" />
-        <Text>Contact Us</Text>
+        <Text> {<IconPhoneCalling/>}Contact Us</Text>
         <Divider size="lg" orientation="vertical" />
-        <Text>Guid</Text>
+        <Text>{<IconQuestionMark/>} Guid</Text>
         <Divider size="lg" orientation="vertical" />
-        <Text>Question</Text>
-      <Input placeholder="search"/>
+        <Text> {<IconQuestionCircle/>}Question</Text>
+      <Input type="text" placeholder="Search..." radius="lg" icon= {<IconSearch/>}  />
       </Group>
       </>
     )

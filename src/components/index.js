@@ -20,7 +20,6 @@ export function ShowProductData() {
 
     return (
         <>
-            <h1>   ZARA  </h1>
             <MenuBar/>
             <Grid>
 
