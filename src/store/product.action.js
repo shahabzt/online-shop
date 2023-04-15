@@ -32,7 +32,7 @@ export function fetchProduct(){
             dispatch(FetchUserSuccess(product))
         })
         .catch((error)=>{
-            const errorMsg = error.msg;
+            const errorMsg = error.message;
             dispatch(FetchUserFailure(errorMsg))
         })
     }
