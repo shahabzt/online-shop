@@ -1,9 +1,10 @@
-import { ADDED_PRODUCT, COUNT_DECREASE, COUNT_INCREASE, DELETE_PRODUCT } from "./cart.constants";
+import { ADDED_PRODUCT, COUNT_DECREASE, COUNT_INCREASE, DELETE_PRODUCT, PAYMENT } from "./cart.constants";
 
 
 const initialState = {
     count: 0,
-    result: []
+    result: [],
+    payment : 0
 }
 export function countReducer(state = initialState, action) {
     switch (action.type) {
@@ -28,6 +29,11 @@ export function countReducer(state = initialState, action) {
                 ...state,
                 result: newResult
             }
+            case PAYMENT:
+                return {
+                    ...state,
+                    paymant: action.payload +=state.payment
+                }
         default:
             return state;
     }

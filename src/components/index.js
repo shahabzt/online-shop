@@ -7,7 +7,7 @@ import { Loading } from './loader';
 import { MenuBar } from './menu';
 import { Link } from 'react-router-dom';
 //counterStore
-import { decreaseCount, increaseCount, addedProduct } from '../store/Cart/Cart.action';
+import { decreaseCount, increaseCount, addedProduct, paymentProduct } from '../store/Cart/Cart.action';
 
 
 
@@ -23,6 +23,7 @@ export function ShowProductData() {
     function handleOnAdd(product) {
         dispatch(increaseCount())
         dispatch(addedProduct(product))
+        dispatch(paymentProduct(product.price))
     }
 
     return (

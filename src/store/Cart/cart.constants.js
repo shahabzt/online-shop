@@ -1,4 +1,5 @@
 export const COUNT_INCREASE = "COUNT_INCREASE";
 export const COUNT_DECREASE = "COUNT_DECREASE";
 export const ADDED_PRODUCT = "ADDED_PRODUCT";
-export const DELETE_PRODUCT = "DELETE_PRODUCT"
+export const DELETE_PRODUCT = "DELETE_PRODUCT";
+export const PAYMENT = "PAYMENT"
