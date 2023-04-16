@@ -34,9 +34,9 @@ export function Cart() {
             <MenuBar />
             <Divider m="lg"></Divider>
             {hovered? <Alert>Clicked to see standard photo size</Alert> : ""}
-            <Grid justify="center" grow gutter="sm">
+            <Grid justify="center" align="center" grow gutter="sm">
 
-                <Grid.Col span={2} >
+                <Grid.Col  span={2} >
                     <Text align="center"> Number on Your Cart : {product.length}  </Text>
                     <Button fullWidth color="green" radius="lg" size="md">Payment : {sumPrices} </Button>
                 </Grid.Col>
