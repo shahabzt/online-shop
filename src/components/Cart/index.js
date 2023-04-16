@@ -67,7 +67,7 @@ export function Cart() {
                                                 </Card.Section>
                                                 <Text weight={700}> {pro.title} </Text>
 
-                                                    <Badge color={pro.rating.count > 10 ? "green" : "red"} variant="light">Number Ramining:{pro.rating.count - 1} </Badge>
+                                                    <Badge color={pro.rating.count > 100 ? "green" : "red"} variant="light">Number Ramining:{pro.rating.count - 1} </Badge>
                                                 <Badge color="pink" variant="light">
                                                     price:   $  {pro.price}
                                                 </Badge>
