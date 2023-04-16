@@ -28,11 +28,11 @@ export function ContactUs() {
                 <Grid.Col span={6}>
                         Contact US:
                     <Group m={20}>
-                    <IconPhoneIncoming size={25} color="teal"/><Text>Phone Number: +989123456789 </Text>
+                    <IconPhoneIncoming size={25} color="teal"/><Text> +989123456789 </Text>
                     </Group>
 
                     <Group m={20}>
-                        <IconMail size={25} color="teal"/> <Text >Email Address : Shahab.Banijamali94@gmail.com</Text>
+                        <IconMail size={25} color="teal"/> <Text > Shahab.Banijamali94@gmail.com</Text>
                     </Group>
 
                     <Group m={20}>
