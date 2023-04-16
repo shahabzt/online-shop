@@ -1,5 +1,5 @@
 //Constants
-import { ADDED_PRODUCT, COUNT_DECREASE , COUNT_INCREASE } from "./cart.constants";
+import { ADDED_PRODUCT, COUNT_DECREASE , COUNT_INCREASE, DELETE_PRODUCT } from "./cart.constants";
 
 export function decreaseCount(payload){
     return {
@@ -19,6 +19,13 @@ export function addedProduct(payload){
     return {
         type: ADDED_PRODUCT,
         payload
+    }
+}
+
+export function deleteProduvt(payload){
+    return {
+        type: DELETE_PRODUCT,
+        payload,
     }
 }
 

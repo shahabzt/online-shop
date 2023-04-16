@@ -15,18 +15,15 @@ export function ShowProductData() {
     const dispatch = useDispatch()
     const products = useSelector(state => state.product)
     const counter = useSelector(state => state.counter.count)
-    const ppp = useSelector(state => state.counter)
-    // console.log(product)
+    
     useEffect(() => {
         dispatch(fetchProduct())
     }, [])
-    console.log(products)
+
     function handleOnAdd(product) {
         dispatch(increaseCount())
         dispatch(addedProduct(product))
-        // console.log(e)
     }
-    console.log(ppp)
 
     return (
         <>
