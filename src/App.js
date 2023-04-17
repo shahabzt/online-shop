@@ -2,11 +2,12 @@ import { BrowserRouter, Route, Routes , Navigate} from 'react-router-dom';
 import './App.css';
 import { ShowProductData } from './components';
 import { Cart } from './components/Cart';
-import { ContactUs } from './components/Email';
+import { ContactUs } from './components/Contact';
 import { Login } from './components/Login';
 
 function App() {
   return (
+    
       <BrowserRouter>
       <Routes>
         <Route path='/Home' element= {<ShowProductData/>} />

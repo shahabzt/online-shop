@@ -1,20 +1,23 @@
+//Router
+import { Link } from 'react-router-dom';
+// Hooks
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+//Components
 import { fetchProduct } from "../store/product.action"
-import { ProductPaint } from './product.paint';
-import { Card, Image, Text, Badge, Button, Group, Grid, Flex, Spoiler, Anchor, Divider } from '@mantine/core';
 import { Loading } from './loader';
 import { MenuBar } from './menu';
-import { Link } from 'react-router-dom';
-//counterStore
-import { decreaseCount, increaseCount, addedProduct, paymentProduct } from '../store/Cart/Cart.action';
+//Styles
+import { Card, Image, Text, Badge, Button, Group, Grid, Flex, Spoiler, Anchor, Divider, Notification } from '@mantine/core';
+//Actions
+import {  increaseCount, addedProduct, paymentProduct } from '../store/Cart/Cart.action';
+import { showNotification } from '@mantine/notifications';
 
 
 
 export function ShowProductData() {
     const dispatch = useDispatch()
     const products = useSelector(state => state.product)
-    const counter = useSelector(state => state.counter.count)
     
     useEffect(() => {
         dispatch(fetchProduct())
@@ -24,6 +27,12 @@ export function ShowProductData() {
         dispatch(increaseCount())
         dispatch(addedProduct(product))
         dispatch(paymentProduct(product.price))
+        showNotification({
+            title: 'َAdd Product',
+            message: 'The desired product has been added to the shopping cart',
+            autoClose:3000,
+            color: "teal"
+          })
     }
 
     return (
@@ -50,7 +59,7 @@ export function ShowProductData() {
                                             <Badge color={product.rating.rate > 3.5 ? "green" : "red"} radius="md" variant="filled" >
                                                 {product.rating.rate} / 5
                                             </Badge>
-                                            <Anchor href={product.image}>
+                                            <Anchor href={product.image} >
                                                 <Image
                                                     src={product.image}
                                                     width={150}

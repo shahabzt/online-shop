@@ -1,17 +1,18 @@
 //mantine styles
 
 import { Button, Divider, Grid, Stack, Card, Text, Image, Badge, Anchor, Notification, Alert } from "@mantine/core"
-
+import { showNotification } from "@mantine/notifications";
 //components
 
 import { MenuBar } from "../menu"
 //store
 
 import { useSelector, useDispatch } from "react-redux"
-import { decreaseCount, increaseCount, addedProduct, deleteProduvt, paymentProduct } from "../../store/Cart/Cart.action";
+import { decreaseCount,  deleteProduvt,  } from "../../store/Cart/Cart.action";
 //utilities
 import { sum } from "../../utils/sum.utilities";
 import { useHover } from "@mantine/hooks";
+
 export function Cart() {
     const dispatch = useDispatch();
     const product = useSelector(state => state.counter.result)
@@ -25,6 +26,12 @@ export function Cart() {
     function handleOnDelete(pro) {
         dispatch(decreaseCount())
         dispatch(deleteProduvt(pro))
+        showNotification({
+            title: 'َDelete Product',
+            message: 'The desired product has been deleted to the shopping cart',
+            autoClose:3000,
+            color: "red"
+          })
     }
     const { hovered, ref } = useHover()
 
