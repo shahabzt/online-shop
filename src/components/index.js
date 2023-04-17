@@ -1,14 +1,14 @@
 //Router
 import { Link } from 'react-router-dom';
 // Hooks
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 //Components
 import { fetchProduct } from "../store/product.action"
 import { Loading } from './loader';
 import { MenuBar } from './menu';
 //Styles
-import { Card, Image, Text, Badge, Button, Group, Grid, Flex, Spoiler, Anchor, Divider, Notification } from '@mantine/core';
+import { Card, Image, Text, Badge, Button, Group, Grid, Flex, Spoiler, Anchor, Divider, } from '@mantine/core';
 //Actions
 import {  increaseCount, addedProduct, paymentProduct } from '../store/Cart/Cart.action';
 import { showNotification } from '@mantine/notifications';
@@ -18,6 +18,7 @@ import { showNotification } from '@mantine/notifications';
 export function ShowProductData() {
     const dispatch = useDispatch()
     const products = useSelector(state => state.product)
+    const [disableBtn , setDisableBtn] = useState(false)
     
     useEffect(() => {
         dispatch(fetchProduct())
@@ -33,6 +34,9 @@ export function ShowProductData() {
             autoClose:3000,
             color: "teal"
           })
+    }
+    function handleOnDisable(e){
+        e.currentTarget.disabled = true;
     }
 
     return (
@@ -91,7 +95,7 @@ export function ShowProductData() {
                                             </Badge>
                                         </Card.Section>
                                         {/* <Anchor href={product.image}> */}
-                                        <Button variant="dark" color="teal" fullWidth mt="md" mb="xs" radius="md" onClick={() => handleOnAdd(product)}>
+                                        <Button type='submit' variant="dark" color="teal" fullWidth mt="md" mb="xs" radius="md" onClick={(e) => {handleOnAdd(product);handleOnDisable(e) }} >
                                             Add
                                         </Button>
                                         {/* </Anchor> */}
