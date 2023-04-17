@@ -38,7 +38,7 @@ export function Cart() {
 
                 <Grid.Col  span={2} >
                     <Text align="center"> Number on Your Cart : {product.length}  </Text>
-                    <Button fullWidth color="green" radius="lg" size="md">Payment : {sumPrices} </Button>
+                    <Button fullWidth color="teal" radius="lg" size="md">Payment : $ {sumPrices} </Button>
                 </Grid.Col>
                 <Grid.Col span={6}>
                     {product.length ?

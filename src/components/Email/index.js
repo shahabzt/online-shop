@@ -9,7 +9,7 @@ export function ContactUs() {
             <MenuBar />
             <Divider m="lg"></Divider>
             <Grid justify="center" align="center">
-                <Grid.Col span={6}>Critics and Suggestions:
+                <Grid.Col  md={6} sm={12}>Critics and Suggestions:
                     <Group m={5} position="center" grow>
                         <TextInput radius={9} placeholder="Enter Your Full Name..." label="Your Name" />
                         <TextInput radius={9} placeholder="Enter Your Email..." label="Email" />
@@ -25,7 +25,7 @@ export function ContactUs() {
                 </Grid.Col>
 
 
-                <Grid.Col span={6}>
+                <Grid.Col  md={6} sm={12}>
                         Contact US:
                     <Group m={20}>
                     <IconPhoneIncoming size={25} color="teal"/><Text> +989123456789 </Text>
@@ -36,7 +36,7 @@ export function ContactUs() {
                     </Group>
 
                     <Group m={20}>
-                        <IconMapPin size={25} color="teal"/> <Text >Tehran, Sheikh Bahaei Street, Emdad Gharbi, MapsaHR</Text>
+                        <IconMapPin size={25} color="teal"/> <Text > Tehran, Sheikh Bahaei Street, Emdad Gharbi, MapsaHR</Text>
                     </Group>
                 </Grid.Col>
             </Grid>

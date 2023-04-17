@@ -3,6 +3,7 @@ import './App.css';
 import { ShowProductData } from './components';
 import { Cart } from './components/Cart';
 import { ContactUs } from './components/Email';
+import { Login } from './components/Login';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/'  element= {<ShowProductData/>} />
         <Route path='/store' element = {<Cart/>} />
         <Route path='/contact-us' element = {<ContactUs/>} />
+        <Route path='/login' element={<Login/>} />
       </Routes>
       </BrowserRouter>
     

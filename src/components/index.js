@@ -30,14 +30,13 @@ export function ShowProductData() {
         <>
             <MenuBar />
             <Divider m="md"></Divider>
-            <Grid>
+            <Grid >
 
 
                 {products.isLoading ? <Loading /> : products.error ? <h1>{products.error}</h1> :
                     products.product.map((product) => {
                         return (
-                            // <ProductPaint  image= {product.image} description = {product.description} price = {product.price} title = {product.title} />                            
-                            <Grid.Col span={4} key={product.id}>
+                            <Grid.Col md={4} sm={12} key={product.id}>
                                 <Flex
 
                                     justify="center"
@@ -46,7 +45,7 @@ export function ShowProductData() {
                                     wrap="wrap"
                                 >
                                     <Card withBorder>
-                                        <Card.Section style={{ weight: "500px", height: "450px" }}
+                                        <Card.Section  style={{ weight: "500px", height: "350px" }}
                                         >
                                             <Badge color={product.rating.rate > 3.5 ? "green" : "red"} radius="md" variant="filled" >
                                                 {product.rating.rate} / 5
@@ -54,26 +53,27 @@ export function ShowProductData() {
                                             <Anchor href={product.image}>
                                                 <Image
                                                     src={product.image}
-                                                    width={200}
-                                                    height={200}
+                                                    width={150}
+                                                    height={150}
                                                     fit="fill"
                                                     alt="Production"
+                                                    m={10}
                                                 />
                                             </Anchor>
 
                                             <Group position="apart" mt="md" mb="xs">
 
                                             </Group>
-                                            <Text weight={500} truncate>{product.title}</Text>
-                                            <Badge color="pink" variant="light">
+                                            <Text m={5} weight={500} truncate>{product.title}</Text>
+                                            <Badge m={5} color="pink" variant="light">
                                                 price:   $  {product.price}
                                             </Badge>
-                                            <Link to={`/${product.title}`}>
+                                            <Link  style={{textDecoration:"none" , margin:"5px"}} to={`/${product.title}`}>
 
-                                                <Spoiler maxHeight={20} showLabel="Show More..." hideLabel="Hide"
+                                                <Spoiler  maxHeight={25} showLabel="Show More..." hideLabel="Hide"
 
                                                 >
-                                                    {product.description}
+                                                   <Text  color='dark'> {product.description} </Text> 
                                                 </Spoiler>
                                             </Link>
 
@@ -82,7 +82,7 @@ export function ShowProductData() {
                                             </Badge>
                                         </Card.Section>
                                         {/* <Anchor href={product.image}> */}
-                                        <Button variant="light" color="blue" fullWidth mt="md" mb="xs" radius="md" onClick={() => handleOnAdd(product)}>
+                                        <Button variant="dark" color="teal" fullWidth mt="md" mb="xs" radius="md" onClick={() => handleOnAdd(product)}>
                                             Add
                                         </Button>
                                         {/* </Anchor> */}
