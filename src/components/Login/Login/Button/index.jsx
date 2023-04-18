@@ -14,6 +14,7 @@ export function GroupButton(){
             px={35}
             leftIcon={<IconBrandFacebook size={20} />}
             variant="outline"
+            type="submit"
         >Facebook</Button>
         <Button
             color={"cyan"}
@@ -21,6 +22,7 @@ export function GroupButton(){
             px={35}
             leftIcon={<IconBrandGoogle size={20}  />}
             variant="outline"
+            type="submit"
         >
             Google</Button>
     </Group>

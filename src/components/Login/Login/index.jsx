@@ -14,15 +14,19 @@ export function Demo() {
     const [Password , setPassword] = useState("");
     function handleOnUserName(e){
         setUserName(e.target.value)
+        
     }
     function handleOnPassword(e){
         setPassword(e.target.value)
     }
     console.log(userName)
     console.log(Password)
-    function handleOnLogin(){
+    function handleOnLogin(e){
+        e.preventDefault()
         localStorage.setItem("username:", userName)
         localStorage.setItem("password:", Password)
+        setPassword("")
+        setUserName("")
     }
     const inputStyles={
         backgroundColor:"white",
@@ -49,6 +53,7 @@ export function Demo() {
                             icon={<IconMail size={20} style={inputStyles} />}
                             placeholder="you@example.com" 
                             onChange={handleOnUserName}
+                            value={userName}
                             />
                         <PasswordInput
                             style={{ backgroundColor: "#f2f2f2", borderRadius: "10px", marginTop: "10px" }}
@@ -57,6 +62,7 @@ export function Demo() {
                             icon={<IconLock size={20} style={inputStyles} />}
                             placeholder="At least 8 characters"
                             onChange={handleOnPassword}
+                            value={Password}
                             />
                     </div>
                     <Link to={"/home"} style={{textDecoration:"none"}}>
@@ -68,6 +74,7 @@ export function Demo() {
                         variant="gradient"
                         gradient={{ from: 'teal', to: 'blue', deg: 60 }}
                         onClick={handleOnLogin}
+                        type='submit'
                     >
                         Login
                     </Button>
