@@ -13,6 +13,7 @@ import { decreaseCount,  deleteProduct,  } from "../../store/Cart/Cart.action";
 import { sum } from "../../utils/sum.utilities";
 import { useHover } from "@mantine/hooks";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export function Cart() {
     const dispatch = useDispatch();
@@ -53,7 +54,7 @@ export function Cart() {
                                 return (
                                     <>
 
-                                        
+
 
                                         <Grid.Col  span={1} style={{ marginRight: "20px" }} >
                                             <Card shadow="sm" padding="lg" radius="md" withBorder  >
@@ -93,8 +94,8 @@ export function Cart() {
 
 
                 </Stack>
-                : <><Notification color="red" title="Your Shopping Cart Is Empty!!">
-                            Back to Home Page and Select a Product.
+                : <><Notification disallowClose color="red" title="Your Shopping Cart Is Empty!!">
+                            Back to <Link style={{ textDecoration: "none" }} to={"/"}> Home Page</Link>  and Select a Product.
                         </Notification></>
                 }
                 </Grid.Col>
