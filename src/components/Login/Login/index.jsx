@@ -43,6 +43,7 @@ export function Demo() {
                     </Text>
                     <div >
                         <TextInput
+                        type='email'
                             style={{ backgroundColor: "#f2f2f2", borderRadius: "10px", marginTop: "10px" }}
                             variant="unstyled"
                             icon={<IconMail size={20} style={inputStyles} />}

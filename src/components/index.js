@@ -18,6 +18,8 @@ import { showNotification } from '@mantine/notifications';
 export function ShowProductData() {
     const dispatch = useDispatch()
     const products = useSelector(state => state.product)
+    // const result = useSelector(state => state.counter.result)
+
     const [disableBtn , setDisableBtn] = useState(false)
     
     useEffect(() => {
@@ -25,9 +27,10 @@ export function ShowProductData() {
     }, [])
 
     function handleOnAdd(product) {
-        dispatch(increaseCount())
+        
         dispatch(addedProduct(product))
-        dispatch(paymentProduct(product.price))
+        
+        // dispatch(paymentProduct(product.price))
         showNotification({
             title: 'َAdd Product',
             message: 'The desired product has been added to the shopping cart',
@@ -36,7 +39,7 @@ export function ShowProductData() {
           })
     }
     function handleOnDisable(e){
-        e.currentTarget.disabled = true;
+        // e.currentTarget.disabled = true;
     }
 
     return (

@@ -8,24 +8,22 @@ import { MenuBar } from "../menu"
 //store
 
 import { useSelector, useDispatch } from "react-redux"
-import { decreaseCount,  deleteProduvt,  } from "../../store/Cart/Cart.action";
+import { decreaseCount,  deleteProduct,  } from "../../store/Cart/Cart.action";
 //utilities
 import { sum } from "../../utils/sum.utilities";
 import { useHover } from "@mantine/hooks";
+import { useEffect } from "react";
 
 export function Cart() {
     const dispatch = useDispatch();
     const product = useSelector(state => state.counter.result)
     const prices = product.map((pro) => {
-        return +pro.price
+        return pro.price
 
     })
-
     const sumPrices = sum(prices)
-  
     function handleOnDelete(pro) {
-        dispatch(decreaseCount())
-        dispatch(deleteProduvt(pro))
+        dispatch(deleteProduct(pro))
         showNotification({
             title: 'َDelete Product',
             message: 'The desired product has been deleted to the shopping cart',
@@ -35,7 +33,7 @@ export function Cart() {
     }
     const { hovered, ref } = useHover()
 
-
+    
     return (
         <>
             <MenuBar />
@@ -50,14 +48,14 @@ export function Cart() {
                 <Grid.Col span={6}>
                     {product.length ?
 
-                        <Stack spacing="lg" style={{ marginRight: "30px" }} sx={(theme) => ({ backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] })}>
+                        <Stack  spacing="lg" style={{ marginRight: "30px" }} sx={(theme) => ({ backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] })}>
                             {product.map((pro) => {
                                 return (
                                     <>
 
 
 
-                                        <Grid.Col span={1} style={{ marginRight: "20px" }} >
+                                        <Grid.Col  span={1} style={{ marginRight: "20px" }} >
                                             <Card shadow="sm" padding="lg" radius="md" withBorder  >
                                                 <Card.Section ref={ref}>
                                                     

@@ -22,7 +22,7 @@ export function addedProduct(payload){
     }
 }
 
-export function deleteProduvt(payload){
+export function deleteProduct(payload){
     return {
         type: DELETE_PRODUCT,
         payload,
